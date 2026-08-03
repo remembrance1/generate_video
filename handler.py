@@ -32,11 +32,11 @@ def process_input(input_data, temp_dir, output_filename, input_type):
     """입력 데이터를 처리하여 파일 경로를 반환하는 함수"""
     if input_type == "path":
         # 경로인 경우 그대로 반환
-        logger.info(f"📁 경로 입력 처리: {input_data}")
+        #logger.info(f"📁 경로 입력 처리: {input_data}")
         return input_data
     elif input_type == "url":
         # URL인 경우 다운로드
-        logger.info(f"🌐 URL 입력 처리: {input_data}")
+        #logger.info(f"🌐 URL 입력 처리: {input_data}")
         os.makedirs(temp_dir, exist_ok=True)
         file_path = os.path.abspath(os.path.join(temp_dir, output_filename))
         return download_file_from_url(input_data, file_path)
@@ -147,7 +147,7 @@ def load_workflow(workflow_path):
 def handler(job):
     job_input = job.get("input", {})
 
-    logger.info(f"Received job input: {job_input}")
+    #logger.info(f"Received job input: {job_input}")
     task_id = f"task_{uuid.uuid4()}"
 
     # 이미지 입력 처리 (image_path, image_url, image_base64 중 하나만 사용)
